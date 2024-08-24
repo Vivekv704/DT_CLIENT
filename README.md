@@ -1,5 +1,18 @@
 # API DOCUMENTATION
-<h3>Nudge Management System</>
+
+Download all dependencies
+```
+npm install
+or
+yarn install 
+```
+
+Run Command
+```
+npm start
+```
+
+<h3>Nudge Management System</h3>
 Base URL
 The API can be accessed at:
 
@@ -149,14 +162,4 @@ The "Nudge" object represents a message or reminder that is sent to a recipient 
 
 
 
-Download all dependencies
-```
-npm install
-or
-yarn install 
-```
 
-Run Command
-```
-npm start
-```
