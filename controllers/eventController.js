@@ -27,7 +27,7 @@ const getEventById = async (req, res) => {
             return res.status(400).send('Invalid ID format');
         }
 
-        const event = await db.collection('events').findOne({ _id: ObjectId(eventId) });
+        const event = await db.collection('events').findOne({ _id: new ObjectId(eventId) });
         if (!event) {
             return res.status(404).json({ error: 'Event not found' });
         }
@@ -100,7 +100,7 @@ const updateEvent = async (req, res) => {
 
     try {
         const db = getDB();
-        const result = await db.collection('events').updateOne({ _id: ObjectId(eventId) }, updatedEvent);
+        const result = await db.collection('events').updateOne({ _id: new ObjectId(eventId) }, updatedEvent);
         if (result.matchedCount === 0) return res.status(404).send('Event not found');
         res.json({ message: 'Event updated' });
     } catch (error) {
@@ -118,7 +118,7 @@ const deleteEvent = async (req, res) => {
 
     try {
         const db = getDB();
-        const result = await db.collection('events').deleteOne({ _id: ObjectId(eventId) });
+        const result = await db.collection('events').deleteOne({ _id: new ObjectId(eventId) });
         if (result.deletedCount === 0) return res.status(404).send('Event not found');
         res.json({ message: 'Event deleted' });
     } catch (error) {
